@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ff1493 100%);
+    min-height: 100vh;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ff1493 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    animation: slideIn 0.8s ease-in-out;
+}
+
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.8) translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: #ff1493;
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.2);
+}
+
+h2 {
+    color: #dc143c;
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(220, 20, 60, 0.2);
+}
+
+.message-text {
+    color: #333;
+    font-size: 18px;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.signature {
+    color: #ff1493;
+    font-size: 20px;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+.name-signature {
+    font-size: 24px;
+    font-weight: bold;
+    color: #dc143c;
+}
+
+.click-btn, .next-btn {
+    background: linear-gradient(135deg, #ff1493, #dc143c);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.click-btn:hover, .next-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(255, 20, 147, 0.6);
+}
+
+.click-btn:active, .next-btn:active {
+    transform: scale(0.95);
+}
+
+/* Floating hearts animation */
+.heart {
+    position: fixed;
+    font-size: 30px;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: float 6s infinite ease-in;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Floating name animation */
+.floating-name {
+    position: fixed;
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff1493;
+    opacity: 0.5;
+    pointer-events: none;
+    text-shadow: 2px 2px 8px rgba(255, 20, 147, 0.3);
+    animation: floatName 8s infinite ease-in-out;
+}
+
+@keyframes floatName {
+    0% {
+        transform: translateY(50px) translateX(0px);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-50px) translateX(30px);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(50px) translateX(0px);
+        opacity: 0.3;
+    }
+}
+
+#hearts-container, #name-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* In-love emoji animation */
+.love-emoji {
+    position: fixed;
+    font-size: 40px;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: floatEmoji 7s infinite ease-in;
+}
+
+@keyframes floatEmoji {
+    0% {
+        transform: translateY(100vh) rotate(-20deg);
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .page {
+        width: 95%;
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .message-text {
+        font-size: 16px;
+    }
+
+    .click-btn, .next-btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .heart {
+        font-size: 24px;
+    }
+
+    .floating-name {
+        font-size: 36px;
+    }
+
+    .love-emoji {
+        font-size: 30px;
+    }
+}
